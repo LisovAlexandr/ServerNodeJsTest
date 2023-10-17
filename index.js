@@ -1,3 +1,4 @@
+//гит гит гит
 //для теста гита сделаю прям щас
 /*import chalk from 'chalk'
 import text from './testModule.js'
