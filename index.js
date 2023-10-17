@@ -59,21 +59,42 @@ const server = http.createServer((req,res)=>{
   //способ 2
   
   let filePath = path.join(__dirname,"public",req.url==="/"? "index.html" : req.url)
+<<<<<<< HEAD
   //console.log(filePath)
+=======
+  let contentType = "text/html"
+  const ext = path.extname(filePath)
+  switch(ext){
+    case '.css':
+      contentType = 'text/css'
+      break
+    case '.js':
+      contentType = 'text/javascript'
+      break
+    default:
+      contentType = 'text/html'
+      break
+  }
+  if(!ext){
+    filePath += ".html"
+  }
+  console.log(req.url)
+>>>>>>> c9dd5464a54d07a33dfb31c4a6319ef9858d0916
   fs.readFile(filePath,(err,content)=>{
     if(err){
-      fs.readFile(path.join(filePath,"public",'error.html'),(err,data)=>{
+      fs.readFile(path.join(__dirname,"public",'error.html'),(err,data)=>{
         if(err){
           res.writeHead(500)
           res.end('Error')
-        }
+          }
         else{
           res.writeHead(200,{
-            'Content-Type':'text/html'
+            'Content-Type':contentType
             })
           res.end(data)
           }
       })
+      
     }
     else{
       res.writeHead(200,{
@@ -82,8 +103,8 @@ const server = http.createServer((req,res)=>{
       res.end(content)
     }
   })
-  res.end()
-});
+  //res.end()
+});//end createserver
 
 server.listen(3000,()=>{
   console.log('server работает...')
