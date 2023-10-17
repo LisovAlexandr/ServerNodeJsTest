@@ -57,9 +57,9 @@ const server = http.createServer((req,res)=>{
   //способ 2
   
   let filePath = path.join(__dirname,"public",req.url==="/"? "index.html" : req.url)
-<<<<<<< HEAD
+
   //console.log(filePath)
-=======
+
   let contentType = "text/html"
   const ext = path.extname(filePath)
   switch(ext){
@@ -77,7 +77,7 @@ const server = http.createServer((req,res)=>{
     filePath += ".html"
   }
   console.log(req.url)
->>>>>>> c9dd5464a54d07a33dfb31c4a6319ef9858d0916
+
   fs.readFile(filePath,(err,content)=>{
     if(err){
       fs.readFile(path.join(__dirname,"public",'error.html'),(err,data)=>{
