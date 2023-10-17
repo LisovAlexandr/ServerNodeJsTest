@@ -1,3 +1,4 @@
+//для теста гита сделаю прям щас
 /*import chalk from 'chalk'
 import text from './testModule.js'
 import path from 'path'
@@ -56,7 +57,7 @@ const server = http.createServer((req,res)=>{
   */
   //способ 2
   
-  let filePath = path.join("__dirname","public",req.url==="/"? "index.html" : req.url)
+  let filePath = path.join(__dirname,"public",req.url==="/"? "index.html" : req.url)
   //console.log(filePath)
   fs.readFile(filePath,(err,content)=>{
     if(err){
